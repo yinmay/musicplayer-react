@@ -9,6 +9,7 @@ let Root = React.createClass({
         }
     },
     componentDidMount(){
+        //play music
         $('#player').jPlayer({
             ready:function(){
                 $(this).jPlayer('setMedia', {
@@ -19,11 +20,15 @@ let Root = React.createClass({
             supplied:'mp3',
             vmode:'window'
         })
+        //play progress
         $('#player').bind($.jPlayer.event.timeupdate, (e)=>{
             this.setState({
-                progress:Math.round(e.jPlayer.status.currentPercentAbsolute)
+                progress:e.jPlayer.status.currentPercentAbsolute
             })
         })
+    },
+    componentWillUnmount(){
+        $('#jPlayer').unbind($.jPlayer.event.timeupdate)
     },
     render(){
         return(
