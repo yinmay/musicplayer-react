@@ -1,3 +1,9 @@
+'use strict';
+
+let path = require('path');
+let webpack = require('webpack');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
@@ -33,6 +39,10 @@ module.exports = {
                 query: {
                     presets: ['react', 'es2015']
                 }
+            },
+            {
+                test: /\.json?$/,
+                loader: 'json'
             },
             {
                 test: /\.css$/,
