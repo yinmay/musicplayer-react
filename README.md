@@ -10,6 +10,7 @@
 [2017-12-19] 
 * seperate the player page from the root 
 * import progress component into the player page
-* 
+* musiclist component
+* react-router
 
 
